@@ -1,0 +1,23 @@
+public class Towers {
+
+	public static void main(String[] args) {		
+		int startPeg = 1;
+		int endPeg = 3;
+		int tempPeg = 2;
+		int totalDisks = 3;
+		
+		Towers.SolveTower(totalDisks, startPeg, endPeg, tempPeg);
+	}
+
+	public static void SolveTower( int disks, int sourcePeg, 
+			int destinationPeg, int tempPeg) {
+		
+		if( disks == 1 ) {
+			System.out.printf( "%n%d -->%d", sourcePeg, destinationPeg);
+			return;
+		}		
+		SolveTower( disks - 1, sourcePeg, tempPeg, destinationPeg);
+		System.out.printf( "%n%d -->%d", sourcePeg, destinationPeg);
+		SolveTower( disks - 1, tempPeg, destinationPeg, sourcePeg);
+	}
+}
